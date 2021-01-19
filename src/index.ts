@@ -1,9 +1,9 @@
 import app from "./app";
-import startBot from  "./resources/bot";
+import startBot from "./services/bot";
 import "dotenv/config";
 
-startBot(); // starts bot
+startBot();
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server listen on PORT: ${process.env.PORT || 3000}`);
+  console.log(`SERVER LISTEN ON PORT: ${process.env.PORT || 3000}`);
 });
