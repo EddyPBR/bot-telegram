@@ -1,11 +1,12 @@
 import express from "express";
 
-import HelloController from "./controllers/HelloController";
+import PurchaseController from "./controllers/PurchaseController";
 
-const helloController = new HelloController();
+const purchaseController = new PurchaseController();
 
 const routes = express.Router();
 
-routes.get("/", helloController.index);
+routes.get("/:client_name", purchaseController.search);
+routes.post("/", purchaseController.create);
 
 export default routes;
