@@ -2,14 +2,14 @@
   "name": "mural-digital-backend",
   "version": "1.0.0",
   "description": "Desenvolvido por @EddyPBR este projeto e um sistema de anuncios internos da empresa Rally Motos",
-  "main": "server.js",
+  "main": "index.ts",
   "repository": "https://github.com/Rally-Motos/mural-digital-backend.git",
   "author": "EddyPBR <edvaldojunior1310@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start": "node ./dist/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --files --ignore-watch node_modules --no-notify src/server.ts"
+    "start": "node ./dist/index.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --files --ignore-watch node_modules --no-notify src/index.ts"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
