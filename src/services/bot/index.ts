@@ -6,7 +6,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) =>
   ctx.reply(`
-  Hi, this a telegram bot created by @EddyPBR this is a simple CRUD, without authentication :(
+  Hi, this a telegram bot created by @EddyPBR this is a simple Create/Search user application, without authentication :(
   \nI know... sorry, but i hope than you enjoy it!
   \nNo more, how can i help you? - You can control me by sending these commands:\n
   /create - create a account\n
