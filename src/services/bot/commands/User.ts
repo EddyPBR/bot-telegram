@@ -17,6 +17,21 @@ class UserCommands {
       return error.response;
     }
   }
+
+  async create(params: IUser) {
+    const { client_name } = params;
+
+    try {
+      const response = await api.post(`http://localhost:3000/`, {
+        client_name
+      }, {
+        timeout: 3000,
+      });
+      return response;
+    } catch (error) {
+      return error.response;
+    }
+  }
 }
 
 export default UserCommands;
