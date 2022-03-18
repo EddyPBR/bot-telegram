@@ -7,9 +7,7 @@ import UserCommands from "./commands/User";
 const userCommands = new UserCommands();
 
 bot.command("search", async (ctx): Promise<void> => {
-  ctx.reply(
-    `>>> Please put the name for search a user.`
-  );
+  ctx.reply(`>>> Please put the name for search a user.`);
 
   bot.on("text", async (ctx) => {
     const response = await userCommands.search({
@@ -17,27 +15,19 @@ bot.command("search", async (ctx): Promise<void> => {
     });
 
     if (response.status === 200) {
-      ctx.reply(`
-        RESPONSE:\n
-        ID: ${response.data._id}
-        NAME: ${response.data.client_name}
-        \n
-      `);
+      ctx.reply(
+        `RESPONSE:\nID: ${response?.data._id}NAME: ${response?.data.client_name}`
+      );
     } else {
-      ctx.reply(`
-        RESPONSE:\n
-        ERROR: ${response.data.error}
-      `);
+      ctx.reply(`RESPONSE:\nERROR: ${response?.data ?? response}`);
     }
-  }); 
+  });
 
   return;
 });
 
 bot.command("create", async (ctx): Promise<void> => {
-  ctx.reply(
-    `>>> Please put the name for create a user.`
-  );
+  ctx.reply(`>>> Please put the name for create a user.`);
 
   bot.on("text", async (ctx) => {
     const response = await userCommands.create({
@@ -45,17 +35,11 @@ bot.command("create", async (ctx): Promise<void> => {
     });
 
     if (response.status === 202) {
-      ctx.reply(`
-        USER CREATED:\n
-        ID: ${response.data.client._id}
-        NAME: ${response.data.client.client_name}
-        \n
-      `);
+      ctx.reply(
+        `USER CREATED:\nID: ${response.data.client._id}NAME: ${response.data.client.client_name}`
+      );
     } else {
-      ctx.reply(`
-        RESPONSE:\n
-        ERROR: ${response.data.error}
-      `);
+      ctx.reply(`RESPONSE:\nERROR: ${response.data.error}`);
     }
   });
 
@@ -63,18 +47,12 @@ bot.command("create", async (ctx): Promise<void> => {
 });
 
 bot.command("update", async (ctx): Promise<void> => {
-  ctx.reply(
-    `need create a function to update a user`
-  );
-
+  ctx.reply(`need create a function to update a user`);
   return;
 });
 
 bot.command("delete", async (ctx): Promise<void> => {
-  ctx.reply(
-    `need create a function to delete a user`
-  );
-
+  ctx.reply(`need create a function to delete a user`);
   return;
 });
 

@@ -9,12 +9,15 @@ class UserCommands {
     const { client_name } = params;
 
     try {
-      const response = await api.get(`http://localhost:3000/${client_name}`, {
-        timeout: 3000,
-      });
-      return response;
+      const { data: result } = await api.get(
+        `http://localhost:3000/${client_name}`,
+        {
+          timeout: 3000,
+        }
+      );
+      return result;
     } catch (error) {
-      return error.response;
+      return { data: error?.message ?? "unknown error" };
     }
   }
 
@@ -22,14 +25,18 @@ class UserCommands {
     const { client_name } = params;
 
     try {
-      const response = await api.post(`http://localhost:3000/`, {
-        client_name
-      }, {
-        timeout: 3000,
-      });
-      return response;
+      const { data: result } = await api.post(
+        `http://localhost:3000/`,
+        {
+          client_name,
+        },
+        {
+          timeout: 3000,
+        }
+      );
+      return result;
     } catch (error) {
-      return error.response;
+      return { data: error?.message ?? "unknown error" };
     }
   }
 }
